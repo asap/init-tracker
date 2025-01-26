@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-primary font-cormorantGaramond;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply font-bold text-white py-2 px-4 hover:opacity-70 bg-buttonColor rounded font-macondo disabled:opacity-50;
+  }
+}
+
+@layer utilities {
+  .active-turn {
+    @apply bg-primary text-tertiary font-bold border-primary border-2;
+  }
+
+  .editable {
+    @apply py-3 px-1 text-xl border-2 rounded-md m-0 leading-tight w-full;
+  }
+}
