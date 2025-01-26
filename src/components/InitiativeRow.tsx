@@ -28,16 +28,12 @@ const InitiativeRow = (props: InitiativeRowProps) => {
   const { conditions } = currentEntity;
 
   const computedStyle: string[] = ["text-xl"];
-
   const hiddenConditions = ["hiding", "out-of-range"];
-
   const baseStyle =
     "hover:opacity-90 odd:bg-primary even:bg-secondary font-normal";
-
   const isHidden =
     conditions.every((value) => hiddenConditions.includes(value)) ||
     currentEntity.currentHP === 0;
-
   const isActiveTurn = currentTurn === index;
 
   if (isActiveTurn) {
@@ -48,9 +44,9 @@ const InitiativeRow = (props: InitiativeRowProps) => {
     computedStyle.push(baseStyle);
   }
 
-  const updateEntity = (entity: InitiativeRowEntity) => {
-    console.log("new entity", entity);
+  const setTabIndex = (_index: number) => index * 10 + _index;
 
+  const updateEntity = (entity: InitiativeRowEntity) => {
     setEntity(entity);
     updateRow(entity);
   };
@@ -110,11 +106,8 @@ const InitiativeRow = (props: InitiativeRowProps) => {
   };
 
   const handleRemoveRow = () => {
-    console.log("currentEntity", currentEntity);
     removeRow(currentEntity.id);
   };
-
-  console.log("isHidden?", isHidden);
 
   return (
     <tr className={computedStyle.join(" ")}>
@@ -122,6 +115,8 @@ const InitiativeRow = (props: InitiativeRowProps) => {
         <EditableInputField
           label={currentEntity.initiativeRoll}
           onSave={handleUpdateInitiativeRoll}
+          validation={"number"}
+          tabIndex={setTabIndex(1)}
         />
       </td>
       <td className="px-4 py-2">
@@ -129,12 +124,15 @@ const InitiativeRow = (props: InitiativeRowProps) => {
           label={currentEntity.characterName}
           placeholder="Character Name"
           onSave={handleSaveName}
+          tabIndex={setTabIndex(2)}
         />
       </td>
       <td className="px-4 py-2 flex">
         <EditableInputField
           label={currentEntity.currentHP}
           onSave={handleUpdateCurrentHP}
+          validation={"number"}
+          tabIndex={setTabIndex(3)}
         />
         <div className="border-borderColor/0 px-0 py-3 m-0 w-3 leading-none text-xl border-2">
           /
@@ -142,22 +140,32 @@ const InitiativeRow = (props: InitiativeRowProps) => {
         <EditableInputField
           label={currentEntity.maxHP}
           onSave={handleUpdateMaxHP}
+          validation={"number"}
+          tabIndex={setTabIndex(4)}
         />
       </td>
       <td className="px-4 py-2">
         <EditableInputField
           label={currentEntity.armorClass}
           onSave={handleUpdateArmorClass}
+          validation={"number"}
+          tabIndex={setTabIndex(5)}
         />
       </td>
       <td className="px-4 py-2">
         <EditableInputField
           label={currentEntity.dexterity}
           onSave={handleUpdateDexterity}
+          validation={"number"}
+          tabIndex={setTabIndex(6)}
         />
       </td>
       <td>
-        <button className="btn text-sm " onClick={handleRemoveRow}>
+        <button
+          tabIndex={-1}
+          className="btn text-sm "
+          onClick={handleRemoveRow}
+        >
           Remove
         </button>
       </td>

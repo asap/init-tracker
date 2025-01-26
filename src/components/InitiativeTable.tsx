@@ -66,14 +66,13 @@ const InitativeTable = () => {
   };
 
   const handleAddInitiativeOrder = () => {
-    console.log("adding initiative row");
     const newId = lastKnownId + 1;
     setInitiativeOrder([
       ...initiativeOrder,
       {
         id: `${newId}`,
         initiativeRoll: 0,
-        characterName: "GIMME A NAME", // TODO: Undo this
+        characterName: "",
         currentHP: 0,
         maxHP: 0,
         armorClass: 0,
@@ -142,22 +141,28 @@ const InitativeTable = () => {
       </div>
       <div className="container mx-auto py-4 flex justify-between">
         <div className="flex space-x-4">
-          <button className="btn" onClick={handleNextTurn}>
+          <button tabIndex={-1} className="btn" onClick={handleNextTurn}>
             {turn < 0 ? `Start` : `Next`}
           </button>
-          <button className="btn" onClick={handleSort}>
+          <button tabIndex={-1} className="btn" onClick={handleSort}>
             Sort
           </button>
-          <button className="btn" onClick={handleClear}>
+          <button tabIndex={-1} className="btn" onClick={handleClear}>
             Clear
           </button>
         </div>
         <div className="flex space-x-4">
           <p className="py-2 px-4 font-macondo text-xl">Round {round}</p>
-          <button className="btn" onClick={handleReset} disabled={turn < 0}>
+          <button
+            tabIndex={-1}
+            className="btn"
+            onClick={handleReset}
+            disabled={turn < 0}
+          >
             Reset
           </button>
           <button
+            tabIndex={-1}
             className="btn disabled:opacity-50"
             onClick={handleAddInitiativeOrder}
           >
