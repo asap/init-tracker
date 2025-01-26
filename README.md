@@ -1,5 +1,7 @@
 # Init Tracker
 
+[TRY IT!](https://asap.github.io/init-tracker/)
+
 ## Overview
 
 This Init Tracker is a simple tabletop roleplaying game (TTRPG) initiative tracker designed to help Game Masters (GMs) manage and organize player and NPC initiatives during gaming sessions.
@@ -10,6 +12,7 @@ To determine initiative, it uses a simple sorting of the initiative and dexterit
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or new features, please open an issue or submit a pull request.
+
 1. Fork the repository.
 2. Create a new branch (git checkout -b feature/YourFeature).
 3. Make your changes and commit them (git commit -m 'Add some feature').
@@ -17,4 +20,5 @@ Contributions are welcome! If you have suggestions for improvements or new featu
 5. Open a pull request.
 
 ## License
+
 This project is licensed under the Apache 2.0. See the [LICENSE](LICENSE) file for more details.
